@@ -1,20 +1,19 @@
 //This function will be called when user click changing language
 function translate(lng, tagAttr){
-    var translate = new Translate();
-    translate.init(tagAttr, lng);
+    var translate = new Translate(tagAttr, lng);
     translate.process();
 }
 
 $(document).ready(function(){
-  $( "Something" ).appendTo( document.body );
+  //$( "Something" ).appendTo( document.body );
   //This is id of HTML element (English) with attribute lng-tag
-  $("#enTranslator").click(function(){
+  $("#enTranslator").onClick(function(){
     translate('en', 'lng-tag');
-    $( "<button class='en'>Translate to English!</button>" ).appendTo( document.body );
+    //$( "<button class='en'>Translate to English!</button>" ).appendTo( document.body );
   });
   //This is id of HTML element (Khmer) with attribute lng-tag
-  $("#deTranslator").click(function(){
+  $("#deTranslator").onClick(function(){
     translate('de', 'lng-tag');
-    $( "<button class='de'>Translate to Deutsch!</button>" ).appendTo( document.body );
+    //$( "<button class='de'>Translate to Deutsch!</button>" ).appendTo( document.body );
   });
 });
