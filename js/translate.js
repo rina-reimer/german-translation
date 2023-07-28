@@ -6,10 +6,9 @@ class Translate {
 	}
 	//translate 
 	process() {
-		_self = this;
 		var xrhFile = new XMLHttpRequest();
 		//load content data 
-		xrhFile.open("GET", "lng/" + this.lng + ".json", false);
+		xrhFile.open("GET", "https://https://rina-reimer.github.io/german-translation/lng/" + this.lng + ".json", false);
 		xrhFile.onreadystatechange = function () {
 			if (xrhFile.readyState === 4) {
 				if (xrhFile.status === 200 || xrhFile.status == 0) {
@@ -17,7 +16,7 @@ class Translate {
 					var allDom = document.getElementsByTagName("*");
 					for (var i = 0; i < allDom.length; i++) {
 						var elem = allDom[i];
-						var key = elem.getAttribute(_self.attribute);
+						var key = elem.getAttribute(this.attribute);
 						if (key != null) {
 							elem.innerHTML = LngObject[key];
 						}
@@ -26,6 +25,7 @@ class Translate {
 				}
 			}
 		};
+		
 		xrhFile.send();
 	};
 }
